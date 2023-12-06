@@ -1,0 +1,86 @@
+body {
+    background-color: rgb(26, 26, 26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgb(51, 51, 51);
+    width: 455px;
+    height: 705px;
+    border-radius: 20px;
+    box-shadow: 0 7px 15px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.border {
+    background-color: rgb(26, 26, 26);
+    border-radius: 10px;
+    width: 430px;
+    height: 680px;
+    padding: 3px;
+}
+
+.display-container {
+    background-color: rgb(51, 51, 51);
+    margin: 3px;
+    height: 150px;
+    border: 10px solid rgb(33, 33, 33);
+    border-radius: 5px;
+    border-top: 5px solid rgb(69, 69, 69);
+    border-bottom-color: rgb(26, 26, 26);
+    display: flex;
+}
+
+.display {
+    background-color: rgb(43, 43, 43);
+    border: 4px solid rgb(51, 51, 51);
+    border-radius: 7px;
+    margin: 10px;
+    flex: 1;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-weight: bold; */
+    font-size: 24px;
+    background-color: rgb(51, 51, 51);
+    color: rgb(211, 211, 211);
+    padding: 26.4px;
+    margin: 3px;
+    border: 10px solid rgb(33, 33, 33);
+    border-top: 5px solid rgb(69, 69, 69);
+    border-bottom-color: rgb(26, 26, 26);
+    border-radius: 5px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+button:active {
+    transform: translate(-0.5px, 3px);
+    background-color: rgb(69, 69, 69);
+    border: 10px solid rgb(51, 51, 51);
+    border-top: 5px solid rgb(84, 84, 84);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+#delete,
+#clear {
+    font-size: 15px;
+}
+
+button#equal {
+    display: flex;
+    flex: 1 180px;
+}
