@@ -30,4 +30,25 @@ function operate(num1, mathOperator, num2) {
     return result;
 }
 
-console.log(object);
+let displayValue = 0;
+
+const numberButtons = document.querySelectorAll('.number');
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        displayClickedNumber(button.textContent)
+    });
+});
+
+function displayClickedNumber(clickedNumber) {
+    if (displayValue === 0) {
+        displayValue = clickedNumber;
+    } else {
+        displayValue += clickedNumber
+    };
+
+    updateDisplay();
+}
+
+function updateDisplay() {
+    document.querySelector('.display').textContent = displayValue;
+}
