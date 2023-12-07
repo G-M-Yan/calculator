@@ -46,6 +46,8 @@ numberButtons.forEach(button => {
 function displayClickedNumber(clickedNumber) {
     if (displayValue.length >= 12) {
         displayValue = 'DIGITS LIMIT';
+    } else if (clickedNumber === '.' && displayValue.includes('.')) {
+        return;
     } else if (displayValue === 0) {
         displayValue = clickedNumber;
     } else {
@@ -57,6 +59,7 @@ function displayClickedNumber(clickedNumber) {
 function updateDisplay() {
     document.querySelector('.display').textContent = displayValue;
 };
+
 
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => {
