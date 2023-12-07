@@ -7,7 +7,7 @@ This project is a calculator web application built using HTML, CSS, and JavaScri
 
 ## Screenshot of the Website
 
-![screenshot](https://github.com/G-M-Yan/calculator/blob/main/calculator-screenshot.png)
+![screenshot](https://github.com/G-M-Yan/calculator/blob/main/screenshot-calculator.png)
 
 ## Technologies Used
 - HTML
