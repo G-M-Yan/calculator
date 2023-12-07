@@ -21,7 +21,11 @@ function operate(num1, selectedOperator, num2) {
             result = multiply(num1, num2);
             break;
         case '/':
-            result = divide(num1, num2);
+            if (num2 === 0) {
+                result = 'Genius Alert!'
+            } else {
+                result = divide(num1, num2);
+            }
             break;
         case '%':
             result = calculatePercentage(num1);
@@ -57,16 +61,16 @@ function updateDisplay() {
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
-        if (firstNumber === null) {
-            firstNumber = parseFloat(displayValue);
-            operator = button.textContent;
-            displayValue = '';
-            updateDisplay();
-        } else {
+        if (firstNumber !== null && operator !== null) {
             secondNumber = parseFloat(displayValue);
             firstNumber = operate(firstNumber, operator, secondNumber);
             operator = button.textContent;
             secondNumber = null;
+            displayValue = '';
+            updateDisplay();
+        } else {
+            firstNumber = parseFloat(displayValue);
+            operator = button.textContent;
             displayValue = '';
             updateDisplay();
         }
@@ -76,14 +80,18 @@ operatorButtons.forEach(button => {
 const equalButton = document.querySelector('#equal');
 equalButton.addEventListener('click', () => {
     if (firstNumber !== null && operator !== null) {
-        secondNumber = parseFloat(displayValue);
-        firstNumber = operate(firstNumber, operator, secondNumber);
+        if (secondNumber === null) {
+            secondNumber = parseFloat(displayValue);
+        }
+        const solution = operate(firstNumber, operator, secondNumber);
+        firstNumber = solution;
         operator = null;
         secondNumber = null;
-        displayValue = firstNumber.toString()
+        displayValue = solution.toString();
         updateDisplay();
     }
 });
+
 
 const deleteButton = document.querySelector('#delete');
 deleteButton.addEventListener('click', () => {
@@ -99,6 +107,37 @@ clearButton.addEventListener('click', () => {
     displayValue = 0;
     updateDisplay();
 });
+
+window.onkeydown = function(stroke) {
+    const keyStroke = stroke.key;
+    const keyBinding = {
+        '0': 'zero',
+        '1': 'one',
+        '2': 'two',
+        '3': 'three',
+        '4': 'four',
+        '5': 'five',
+        '6': 'six',
+        '7': 'seven',
+        '8': 'eight',
+        '9': 'nine',
+        '%': 'percent',
+        '/': 'divide',
+        '*': 'multiply',
+        '-': 'minus',
+        '+': 'plus',
+        '.': 'point',
+        'Enter': 'equal',
+        'Backspace': 'delete',
+        'Escape': 'clear',
+    };
+
+    const buttonId = keyBinding[keyStroke];
+    if (buttonId) {
+        const choice = document.querySelector(`#${buttonId}`);
+        choice.click();
+    }
+};
 
 
 updateDisplay();
