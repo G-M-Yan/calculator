@@ -3,7 +3,7 @@
 This project is a calculator web application built using HTML, CSS, and JavaScript. It allows users to perform simple arithmetic operations such as addition, subtraction, multiplication, division, and percentage calculations in a digital format.
 
 ## Live Preview
-![Live Preview](https://g-m-yan.github.io/calculator/)
+https://g-m-yan.github.io/calculator/
 
 ## Screenshot of the Website
 
